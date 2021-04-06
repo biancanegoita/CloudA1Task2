@@ -1,13 +1,13 @@
-from Flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from google.cloud import bigquery
 
 app = Flask(__name__)
 
-client = bigguery.Client()
+client = bigquery.Client()
 
 @app.route('/')
 def tasks():
-    return render_template(index.html)
+    return render_template('index.html')
 @app.route('/task1')
 def task1():
     query = """
@@ -20,7 +20,7 @@ def task1():
     """
     query_task = client.query(query)
 
-    return render_template('task1.html')
+    return render_template('task1.html', result = query_task)
     
 @app.route('/task2')
 def task2():
@@ -51,7 +51,7 @@ def task2():
      50
      """
     query_task = client.query(query)
-    return render_template('task2.html')
+    return render_template('task2.html', result = query_task)
 @app.route('/task3')
 def task3():
 
@@ -65,7 +65,7 @@ def task3():
     ) AS trade_surplus_value
 FROM
   `clouda1-309323.gsquarterlySeptember20.gsquarterlySeptember20`AS GS,
-  `clouda1-309323.service_classification.services_classification` AS SERVICE,
+  `clouda1-309323.services_classification.services_classification` AS SERVICE,
   (
   SELECT
     time_ref,
@@ -114,7 +114,7 @@ LIMIT
   """
 
     query_task = client.query(query)
-    return render_template('task3.html')
+    return render_template('task3.html', result = query_task)
 
 if __name__ == "__main__":
     app.run(host='localhost',debug=True)

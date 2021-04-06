@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{%block head%}
+<title>Task 3</title>
+{%endblock%}
+{%block body%}
+<table style="width:50%">
+    <tr>
+        <th>Service Label</th>
+        <th>Trade Surplus Value</th>
+    </tr>
+        {% for row in result%}
+        <tr>
+            <td>{{row.service_label}}</td>
+            <td>{{row.trade_surplus_value}}</td>
+        </tr>
+        {% endfor%}
+</table>
+{%endblock%}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{%block head%}
+<title>Task 1</title>
+{%endblock%}
+{%block body%}
+<table style="width:50%">
+    <tr>
+        <th>Time Reference</th>
+        <th>Trade Value</th>
+    </tr>
+        {% for row in result%}
+        <tr>
+            <td>{{row.time_ref}}</td>
+            <td>{{row.trade_value}}</td>
+        </tr>
+        {% endfor%}
+</table>
+{%endblock%}
