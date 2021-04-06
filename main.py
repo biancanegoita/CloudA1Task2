@@ -50,8 +50,8 @@ def task2():
     LIMIT
      50
      """
-  query_task = client.query(query)
-return render_template('task2.html')
+    query_task = client.query(query)
+    return render_template('task2.html')
 @app.route('/task3')
 def task3():
 
@@ -113,8 +113,8 @@ LIMIT
   30
   """
 
-query_task = client.query(query)
-return render_template('task3.html')
+    query_task = client.query(query)
+    return render_template('task3.html')
 
 if __name__ == "__main__":
     app.run(host='localhost',debug=True)
