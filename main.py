@@ -12,7 +12,7 @@ def tasks():
 def task1():
     query = """
     SELECT 
-    time_ref, SUM(value) as trade_value, FROM `clouda1-309323.gsquarterlySeptember20.gsquarterlySeptember20`
+    time_ref, SUM(value) as trade_value, FROM `clouda1-task2-310209.gsquarterlySeptember20.gsquarterlySeptember20`
     GROUP BY time_ref, value
     ORDER BY SUM(value) DESC 
     LIMIT 
@@ -34,8 +34,8 @@ def task2():
     ) AS trade_deficit_value,
     status
     FROM
-    `clouda1-309323.gsquarterlySeptember20.gsquarterlySeptember20`AS GS,
-    `clouda1-309323.country_classification.country_classification` AS COUNTRY
+    `clouda1-task2-310209.gsquarterlySeptember20.gsquarterlySeptember20`AS GS,
+    `clouda1-task2-310209.gsquarterlySeptember20.country_classification` AS COUNTRY
     WHERE
     (time_ref >  201400
     OR time_ref <  201700)
@@ -64,14 +64,14 @@ def task3():
   END
     ) AS trade_surplus_value
 FROM
-  `clouda1-309323.gsquarterlySeptember20.gsquarterlySeptember20`AS GS,
-  `clouda1-309323.services_classification.services_classification` AS SERVICE,
+  `clouda1-task2-310209.gsquarterlySeptember20.gsquarterlySeptember20`AS GS,
+  `clouda1-task2-310209.gsquarterlySeptember20.services_classification` AS SERVICE,
   (
   SELECT
     time_ref,
     SUM(value) AS trade_value
   FROM
-    `clouda1-309323.gsquarterlySeptember20.gsquarterlySeptember20`
+    `clouda1-task2-310209.gsquarterlySeptember20.gsquarterlySeptember20`
   GROUP BY
     time_ref
   ORDER BY
@@ -88,7 +88,7 @@ FROM
     ) AS trade_deficit_value,
   status
 FROM
-  `clouda1-309323.gsquarterlySeptember20.gsquarterlySeptember20`
+  `clouda1-task2-310209.gsquarterlySeptember20.gsquarterlySeptember20`
 WHERE
   (time_ref >  201400
     OR time_ref <  201700)
